@@ -14,16 +14,7 @@ export default function Home() {
     </div>
 
     <div className='flex justify-center items-center my-9 gap-22'>
-      <div className='grid grid-cols-4 gap-22'>
-        <CountryCard />
-        <CountryCard />
-        <CountryCard />
-        <CountryCard />
-        <CountryCard />
-        <CountryCard />
-        <CountryCard />
-        <CountryCard />
-      </div>
+        <Countries />
     </div>
   </>
   )

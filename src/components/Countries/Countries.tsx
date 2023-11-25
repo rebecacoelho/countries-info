@@ -1,6 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import CountryCard from "../CountryCard/CountryCard";
+
+interface Country {
+    name: {
+      common: string;
+    };
+    population: number;
+    region: string;
+    capital: string;
+    flags: {
+        svg: string;
+    }
+}
+
+interface InfoCountry {
+    name: string
+    population: number;
+    region: string;
+    capital: string;
+    flag: string;
+}
 
 function Countries() {
   const [countries, setCountries] = useState([]);
@@ -19,16 +40,25 @@ function Countries() {
     fetchData();
   }, []);
 
-  console.log(countries)
+  const infoCountries = countries.map((country: Country) => {
+    const countryName = country.name.common;
+    const countryPopulation = country.population;
+    const countryCapital = country.capital?.[0];
+    const countryRegion = country.region
+    const countryFlag = country.flags.svg
+
+    return { name: countryName, population: countryPopulation, region: countryRegion, capital: countryCapital, flag: countryFlag };
+});
+
+console.log(countries)
+
+  const countriesData: InfoCountry[] = infoCountries
 
   return (
-    <div>
-      <h1>List of Countries</h1>
-      <ul>
-        {countries.map((country, index) => (
-          <li key={index}>{country}</li>
-        ))}
-      </ul>
+    <div className='grid grid-cols-4 gap-22'>
+        {countriesData.map((country: InfoCountry, index: number) => (
+        <CountryCard name={country.name} population={country.population} capital={country.capital} region={country.region} flag={country.flag}/>
+      ))}
     </div>
   );
 }

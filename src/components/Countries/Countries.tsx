@@ -40,25 +40,23 @@ function Countries() {
     fetchData();
   }, []);
 
-  const infoCountries = countries.map((country: Country) => {
-    const countryName = country.name.common;
-    const countryPopulation = country.population;
-    const countryCapital = country.capital?.[0];
-    const countryRegion = country.region
-    const countryFlag = country.flags.svg
+    const infoCountries = countries.map((country: Country) => {
+        const countryName = country.name.common;
+        const countryPopulation = country.population;
+        const countryCapital = country.capital?.[0];
+        const countryRegion = country.region
+        const countryFlag = country.flags.svg
 
-    return { name: countryName, population: countryPopulation, region: countryRegion, capital: countryCapital, flag: countryFlag };
-});
-
-console.log(countries)
+        return { name: countryName, population: countryPopulation, region: countryRegion, capital: countryCapital, flag: countryFlag };
+    });
 
   const countriesData: InfoCountry[] = infoCountries
 
   return (
     <div className='grid grid-cols-4 gap-22'>
         {countriesData.map((country: InfoCountry, index: number) => (
-        <CountryCard name={country.name} population={country.population} capital={country.capital} region={country.region} flag={country.flag}/>
-      ))}
+            <CountryCard key={index} name={country.name} population={country.population} capital={country.capital} region={country.region} flag={country.flag}/>
+        ))}
     </div>
   );
 }

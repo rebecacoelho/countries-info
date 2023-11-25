@@ -13,8 +13,8 @@ interface InfoCountry {
 const CountryCard = (props: InfoCountry) => {
   return (
     <div className='bg-white shadow-md w-80'>
-        <div>
-            <Image className='w-80' width={320} height={192} src={props.flag} alt='germany flag'/>
+        <div className='w-80 h-48'>
+            <Image className='w-full h-full object-cover' width={320} height={192} src={props.flag} alt='germany flag'/>
         </div>
         <div className='flex flex-col px-7'>
             <div className='mt-8'>

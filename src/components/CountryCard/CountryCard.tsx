@@ -11,6 +11,8 @@ interface InfoCountry {
 }
 
 const CountryCard = (props: InfoCountry) => {
+    const formattedPopulation = props.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   return (
     <div className='bg-white shadow-md w-80'>
         <div className='w-80 h-48'>
@@ -21,7 +23,7 @@ const CountryCard = (props: InfoCountry) => {
                 <strong className='text-2xl'>{props.name}</strong>
             </div>
             <div className='flex flex-col mt-4 mb-8'>
-                <span><strong>Population: </strong><span className='text-gray-600'>{props.population}</span></span>
+                <span><strong>Population: </strong><span className='text-gray-600'>{formattedPopulation}</span></span>
                 <span><strong>Region: </strong><span className='text-gray-600'>{props.region}</span></span>
                 <span><strong>Capital: </strong><span className='text-gray-600'>{props.capital}</span></span>
             </div>

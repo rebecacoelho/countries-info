@@ -1,5 +1,4 @@
 import Countries from '@/components/Countries/Countries'
-import CountryCard from '@/components/CountryCard/CountryCard'
 import Header from '@/components/Header/Header'
 import Menu from '@/components/Menu/Menu'
 import SearchBar from '@/components/searchBar/SearchBar'

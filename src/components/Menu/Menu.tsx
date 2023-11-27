@@ -6,7 +6,7 @@ const Menu = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const options = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+  const options = ['Africa', 'America', 'Asia', 'Europe', 'Oceania', 'All'];
 
   const handleOptionClick = (option: any) => {
     setSelectedOption(option);

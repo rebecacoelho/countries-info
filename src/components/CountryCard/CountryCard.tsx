@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import germany from '../../../public/germany.svg'
 
 interface InfoCountry {
     name: string

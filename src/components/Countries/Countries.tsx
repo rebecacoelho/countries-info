@@ -52,12 +52,11 @@ function Countries() {
     });
 
   const countriesData: InfoCountry[] = infoCountries
-  console.log(infoCountries)
 
   return (
     <div className='grid grid-cols-4 gap-22'>
         {countriesData.map((country: InfoCountry, index: number) => (
-            <Link href={`${encodeURIComponent(country.name.replace(/\s/g, '').toLowerCase())}`} key={index}>
+            <Link href={`${encodeURIComponent(country.name.toLowerCase())}`} key={index}>
               <CountryCard name={country.name} population={country.population} capital={country.capital} region={country.region} flag={country.flag}/>
           </Link>
         ))}

@@ -84,15 +84,15 @@ const CountryDetail: React.FC<CountryDetailProps> = ({ slug }) => {
                 <h1 className='text-3xl	font-extrabold mb-8'>{country.name.common}</h1>
             </div>
             <div className='flex gap-28'>
-                <div className='flex flex-col'>
+                <div className='flex flex-col capitalize'>
                     <span className='mb-3'><strong>Native Name: &nbsp;</strong>{country.name.official}</span>
                     <span className='mb-3'><strong>Population: &nbsp;</strong>{formattedPopulation}</span>
                     <span className='mb-3'><strong>Region: &nbsp;</strong>{country.region}</span>
                     <span className='mb-3'><strong>Sub Region: &nbsp;</strong>{country.subregion}</span>
                     <span className='mb-3'><strong>Capital: &nbsp;</strong>{country.capital}</span>
                 </div>
-                <div className='flex flex-col'>
-                    <span className='mb-3'><strong>Top Level Domain: &nbsp;</strong>{country.tld}</span>
+                <div className='flex flex-col capitalize'>
+                    <span className='mb-3 lowercase'><strong>Top Level Domain: &nbsp;</strong>{country.tld}</span>
                     <span className='mb-3'><strong>Currencies: &nbsp;</strong>{currencyCountry.value.name}</span>
                     <span className='mb-3'><strong>Languages: &nbsp;</strong>{languages.join(', ')}</span>
                 </div>

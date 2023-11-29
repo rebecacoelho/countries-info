@@ -22,7 +22,7 @@ interface InfoCountry {
     flag: string;
 }
 
-function Countries({ selectedOption }: any) {
+function Countries({ selectedOption, searchTerm }: any) {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
 
@@ -41,13 +41,21 @@ function Countries({ selectedOption }: any) {
   }, []);
 
   useEffect(() => {
-    if (selectedOption === 'All' || !selectedOption) {
-      setFilteredCountries(countries); 
-    } else {
-      const filtered = countries.filter((country: Country) => country.region === selectedOption);
-      setFilteredCountries(filtered);
+    let filtered = countries;
+
+    if (selectedOption !== 'All' && selectedOption) {
+      filtered = filtered.filter((country: Country) => country.region === selectedOption);
     }
-  }, [countries, selectedOption]);
+
+    if (searchTerm) {
+      filtered = filtered.filter(
+        (country: Country) =>
+          country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    setFilteredCountries(filtered);
+  }, [countries, selectedOption, searchTerm]);
 
   const infoCountries = filteredCountries.map((country: Country) => {
     const countryName = country.name.common;

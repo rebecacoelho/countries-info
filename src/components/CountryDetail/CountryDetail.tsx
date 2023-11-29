@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import BorderCountries from '../BorderCountries/BorderCountries';
 
 interface CountryDetailProps {
   slug: string;
@@ -73,7 +74,6 @@ const CountryDetail: React.FC<CountryDetailProps> = ({ slug }) => {
   const currencyCountry: any = getFirstKeyValue(country.currencies);
   const formattedPopulation = country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-
   return (
     <div className='flex mx-20 gap-40 items-center'>
         <div className='max-w-lg max-h-96'>
@@ -97,16 +97,16 @@ const CountryDetail: React.FC<CountryDetailProps> = ({ slug }) => {
                     <span className='mb-3'><strong>Languages: &nbsp;</strong>{languages.join(', ')}</span>
                 </div>
             </div>
-            <div className='flex mt-16'>
-                <div>
-                    <strong>Border Countries: &nbsp; &nbsp;</strong>
+            {country.borders && country.borders.length > 0 && (
+              <div className='flex mt-16 items-center'>
+                <strong className='w-40'>Border Countries:</strong>
+                <div className='flex flex-wrap gap-6 justify-center items-center'>
+                  {country.borders.map((border: string, index: number) => (
+                    <BorderCountries key={index} border={border} />
+                  ))}
                 </div>
-                <div className='flex gap-6 justify-center items-center'>
-                    {country.borders.map(border => (
-                        <div className='flex justify-center items-center shadow-md gray h-4 py-3 px-5' key={border}>{border}</div>
-                    ))}
-               </div>
-            </div>
+              </div>
+            )}
         </div>
     </div>
   );

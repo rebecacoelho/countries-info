@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import CountryCard from "../CountryCard/CountryCard";
 import Link from "next/link";
@@ -24,8 +22,9 @@ interface InfoCountry {
     flag: string;
 }
 
-function Countries() {
+function Countries({ selectedOption }: any) {
   const [countries, setCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -41,25 +40,34 @@ function Countries() {
     fetchData();
   }, []);
 
-    const infoCountries = countries.map((country: Country) => {
-        const countryName = country.name.common;
-        const countryPopulation = country.population;
-        const countryCapital = country.capital?.[0];
-        const countryRegion = country.region
-        const countryFlag = country.flags.svg
+  useEffect(() => {
+    if (selectedOption === 'All' || !selectedOption) {
+      setFilteredCountries(countries); 
+    } else {
+      const filtered = countries.filter((country: Country) => country.region === selectedOption);
+      setFilteredCountries(filtered);
+    }
+  }, [countries, selectedOption]);
 
-        return { name: countryName, population: countryPopulation, region: countryRegion, capital: countryCapital, flag: countryFlag };
-    });
+  const infoCountries = filteredCountries.map((country: Country) => {
+    const countryName = country.name.common;
+    const countryPopulation = country.population;
+    const countryCapital = country.capital?.[0];
+    const countryRegion = country.region
+    const countryFlag = country.flags.svg
+
+    return { name: countryName, population: countryPopulation, region: countryRegion, capital: countryCapital, flag: countryFlag };
+  });
 
   const countriesData: InfoCountry[] = infoCountries
 
   return (
     <div className='grid grid-cols-4 gap-22'>
-        {countriesData.map((country: InfoCountry, index: number) => (
-            <Link href={`${encodeURIComponent(country.name.toLowerCase())}`} key={index}>
-              <CountryCard name={country.name} population={country.population} capital={country.capital} region={country.region} flag={country.flag}/>
-          </Link>
-        ))}
+      {countriesData.map((country: InfoCountry, index: number) => (
+        <Link href={`${encodeURIComponent(country.name.toLowerCase())}`} key={index}>
+          <CountryCard name={country.name} population={country.population} capital={country.capital} region={country.region} flag={country.flag}/>
+        </Link>
+      ))}
     </div>
   );
 }

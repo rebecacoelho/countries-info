@@ -2,14 +2,13 @@
 import { useState } from 'react';
 import styles from './Menu.module.css';
 
-const Menu = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+const Menu = ({ filterByRegion, selectedOption }: any) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const options = ['Africa', 'America', 'Asia', 'Europe', 'Oceania', 'All'];
+  const options = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania', 'All'];
 
   const handleOptionClick = (option: any) => {
-    setSelectedOption(option);
+    filterByRegion(option); 
     setIsDropdownOpen(false);
   };
 

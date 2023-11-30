@@ -16,11 +16,16 @@
 .inputContainer {
     background: #fff;
     padding: 1rem 5rem;
-    width: 480px;
     border-radius: 4px;
     box-shadow: 2px 2px 2px rgb(213, 207, 207);
 }
 
 .inputContainer:focus {
     outline: none;
+}
+
+@media (max-width: 480px) {
+    .inputContainer {
+       padding: 1rem 3rem;
+    }
 }

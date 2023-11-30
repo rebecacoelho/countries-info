@@ -20,13 +20,15 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="flex justify-between mx-16 mt-9">
-        <SearchBar onSearch={handleSearch} />
-        <Menu filterByRegion={filterByRegion} selectedOption={selectedOption} />
-      </div>
+      <div>
+        <div className="flex md:flex-row justify-between mx-10 md:mx-20 mt-9 flex-col gap-6">
+          <SearchBar onSearch={handleSearch} />
+          <Menu filterByRegion={filterByRegion} selectedOption={selectedOption} />
+        </div>
 
-      <div className='flex justify-center items-center my-9 gap-22'>
-        <Countries selectedOption={selectedOption} searchTerm={searchTerm} /> 
+        <div className='flex justify-center items-center my-9 gap-22'>
+          <Countries selectedOption={selectedOption} searchTerm={searchTerm} /> 
+        </div>
       </div>
     </>
   );

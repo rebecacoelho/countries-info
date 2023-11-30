@@ -70,7 +70,7 @@ function Countries({ selectedOption, searchTerm }: any) {
   const countriesData: InfoCountry[] = infoCountries
 
   return (
-    <div className='grid grid-cols-4 gap-22'>
+    <div className='grid grid-cols-1 md:mx-20 mx-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16'>
       {countriesData.map((country: InfoCountry, index: number) => (
         <Link href={`${encodeURIComponent(country.name.toLowerCase())}`} key={index}>
           <CountryCard name={country.name} population={country.population} capital={country.capital} region={country.region} flag={country.flag}/>

@@ -1,14 +1,15 @@
 "use client";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Countries from '@/components/Countries/Countries';
 import Header from '@/components/Header/Header';
 import Menu from '@/components/Menu/Menu';
 import SearchBar from '@/components/searchBar/SearchBar';
-import { ThemeProvider } from '../context/ThemeContext';
+import ThemeContext, { ThemeProvider } from '../context/ThemeContext';
 
 export default function Home() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const { isDarkMode } = useContext(ThemeContext);
 
   const filterByRegion = (region: any) => {
     setSelectedOption(region);
@@ -19,7 +20,7 @@ export default function Home() {
   };
 
   return (
-    <ThemeProvider>
+    <div className={`${isDarkMode ? 'bg-gray-900 text-white' : ''}`}>
       <Header />
       <div>
         <div className="flex md:flex-row justify-between mx-10 md:mx-20 mt-9 flex-col gap-6">
@@ -31,6 +32,6 @@ export default function Home() {
           <Countries selectedOption={selectedOption} searchTerm={searchTerm} /> 
         </div>
       </div>
-    </ThemeProvider>
+    </div>
   );
 }

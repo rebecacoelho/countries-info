@@ -92,7 +92,7 @@ const CountryDetail: React.FC<CountryDetailProps> = ({ slug }) => {
                     <span className='mb-3'><strong>Capital: &nbsp;</strong>{country.capital}</span>
                 </div>
                 <div className='flex flex-col capitalize'>
-                    <span className='mb-3 lowercase'><strong>Top Level Domain: &nbsp;</strong>{country.tld}</span>
+                    <span className='mb-3'><strong>Top Level Domain: &nbsp;</strong><span className='lowercase'>{country.tld}</span></span>
                     <span className='mb-3'><strong>Currencies: &nbsp;</strong>{currencyCountry.value.name}</span>
                     <span className='mb-3'><strong>Languages: &nbsp;</strong>{languages.join(', ')}</span>
                 </div>

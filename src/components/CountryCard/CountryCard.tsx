@@ -15,7 +15,7 @@ const CountryCard = (props: InfoCountry) => {
     const formattedPopulation = props.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
-    <div className={`shadow-md ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white'}`}>
+    <div className={`shadow-md ${isDarkMode ? 'bg-[#2B3743] text-white' : 'bg-white'}`}>
         <div className='h-48'>
             <Image className='w-full h-full object-cover' width={320} height={192} src={props.flag} alt='germany flag'/>
         </div>

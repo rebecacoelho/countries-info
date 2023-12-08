@@ -77,7 +77,7 @@ const CountryDetail: React.FC<CountryDetailProps> = ({ slug }) => {
   return (
     <div className='flex flex-col lg:flex-row mx-20 gap-20 lg:gap-40 items-center h-1/2'>
         <div className='max-w-lg max-h-96'>
-            <Image className='max-w-lg max-h-96' width={555} height={400} src={country.flags.svg} alt={`Flag of ${country.name.common}`} />
+            <Image className='max-h-96' width={555} height={400} src={country.flags.svg} alt={`Flag of ${country.name.common}`} />
         </div>
         <div>
             <div>

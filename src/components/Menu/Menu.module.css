@@ -55,4 +55,8 @@
 .options li:hover {
     background-color: #f0f0f0;
 }
+
+.darkDropdown .options li:hover {
+    background-color: #2b333c;
+}
   

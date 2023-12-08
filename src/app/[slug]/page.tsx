@@ -11,15 +11,13 @@ const CountryDetailPage = () => {
   const pathname = usePathname()
 
   return (
-    <ThemeProvider>
-      <div className={`h-screen ${isDarkMode ? 'bg-gray-900 text-white' : ''}`}>
+      <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
         <Header />
         <div>
           <BackButton />
         </div>
         <CountryDetail slug={pathname as string} />
       </div>
-    </ThemeProvider>
   );
 };
 

@@ -75,15 +75,15 @@ const CountryDetail: React.FC<CountryDetailProps> = ({ slug }) => {
   const formattedPopulation = country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
-    <div className='flex mx-20 gap-40 items-center h-1/2'>
+    <div className='flex flex-col lg:flex-row mx-20 gap-20 lg:gap-40 items-center h-1/2'>
         <div className='max-w-lg max-h-96'>
             <Image className='max-w-lg max-h-96' width={555} height={400} src={country.flags.svg} alt={`Flag of ${country.name.common}`} />
         </div>
         <div>
             <div>
-                <h1 className='text-3xl	font-extrabold mb-8'>{country.name.common}</h1>
+                <h1 className='text-3xl	font-extrabold mb-8 text-center lg:text-left'>{country.name.common}</h1>
             </div>
-            <div className='flex gap-28'>
+            <div className='flex flex-col gap-5 lg:flex-row lg:gap-28 pb-5'>
                 <div className='flex flex-col capitalize'>
                     <span className='mb-3'><strong>Native Name: &nbsp;</strong>{country.name.official}</span>
                     <span className='mb-3'><strong>Population: &nbsp;</strong>{formattedPopulation}</span>
@@ -98,9 +98,9 @@ const CountryDetail: React.FC<CountryDetailProps> = ({ slug }) => {
                 </div>
             </div>
             {country.borders && country.borders.length > 0 && (
-              <div className='flex mt-16 items-center'>
+              <div className='flex pb-4 lg:mt-16 items-center'>
                 <strong className='w-40'>Border Countries:</strong>
-                <div className='flex flex-wrap gap-6 justify-center items-center'>
+                <div className='flex flex-wrap gap-6 justify-center items-center shadow-md'>
                   {country.borders.map((border: string, index: number) => (
                     <BorderCountries key={index} border={border} />
                   ))}

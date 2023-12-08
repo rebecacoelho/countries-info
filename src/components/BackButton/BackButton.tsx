@@ -8,7 +8,7 @@ const BackButton = () => {
   return (
     <div>
         <Link href='/'>
-        <div className={`flex shadow-md gap-2 px-8 py-2.5 max-w-fit my-20 ml-20 ${isDarkMode ? 'bg-gray-800 text-white shadow-lg' : 'bg-white'}`}>
+        <div className={`flex shadow-md gap-2 px-8 py-2.5 max-w-fit my-20 ml-20 ${isDarkMode ? 'bg-gray-800 text-white shadow-lg' : 'bg-white text-black'}`}>
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className={isDarkMode ? 'text-white' : 'text-black'}>
               <path d="M21 12L3 12" stroke={isDarkMode ? '#fff' : '#121214'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

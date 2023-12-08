@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import ThemeContext from '@/context/ThemeContext';
+import React, { useContext, useEffect, useState } from 'react';
 
 interface Country {
   name: {
@@ -14,6 +15,7 @@ interface InfoBorder {
 const BorderCountries = (props: InfoBorder) => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [borders, setBorders] = useState<string[]>([]);
+  const { isDarkMode } = useContext(ThemeContext);
 
   const findCountryNameByAbv = (abv: string) => {
     const foundCountry = countries.find((country) => country.cca3 === abv);
@@ -48,7 +50,7 @@ const BorderCountries = (props: InfoBorder) => {
   return (
     <div>
       {borders.map((border: string, index: number) => (
-        <div className='flex justify-center items-center shadow-md gray h-4 py-3.5 px-5' key={index}>
+        <div className={`flex justify-center items-center shadow-md h-4 py-3.5 px-5 ${isDarkMode ? 'bg-[#2B3743]' : ''}`} key={index}>
           {border}
         </div>
       ))}

@@ -20,7 +20,7 @@ export default function Home() {
   };
 
   return (
-    <div className={`${isDarkMode ? 'bg-gray-900 text-white' : ''}`}>
+    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : ''}`}>
       <Header />
       <div>
         <div className="flex md:flex-row justify-between mx-10 md:mx-20 mt-9 flex-col gap-6">
